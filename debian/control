@@ -1,15 +1,40 @@
-Source: template-repository
-Section: unknown
+Source: golang-opentelemetry-contrib
+Section: golang
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders:
+ Thomas Goirand <zigo@debian.org>,
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-golang,
+ golang-any,
+ golang-github-felixge-httpsnoop-dev,
+ golang-github-google-go-cmp-dev,
+ golang-github-gorilla-mux-dev,
+ golang-github-stretchr-testify-dev,
+ golang-google-grpc-dev,
+ golang-google-protobuf-dev,
+ golang-opentelemetry-otel-dev (>= 1.10.0),
+Standards-Version: 4.6.0
+Homepage: https://pkg.go.dev/go.opentelemetry.io/contrib
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-opentelemetry-contrib
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-opentelemetry-contrib.git
+XS-Go-Import-Path: go.opentelemetry.io/contrib
+Rules-Requires-Root: no
+Testsuite: autopkgtest-pkg-go
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-opentelemetry-contrib-dev
+Architecture: all
+Depends:
+ golang-github-felixge-httpsnoop-dev,
+ golang-google-grpc-dev,
+ golang-google-protobuf-dev,
+ golang-opentelemetry-otel-dev (>= 1.10.0),
+ ${misc:Depends},
+Description: Collection of 3rd-party packages for OpenTelemetry-Go
+ OpenTelemetry-Go Contrib is a collection of extensions for the
+ opentelemetry project. It provides 3rd parth resource detectors,
+ propagators, samplers, and instrumentation as submodules.
+ .
+ OpenTelemetry-Go Contrib contains common values used across all
+ instrumentation, exporter, and detector contributions.

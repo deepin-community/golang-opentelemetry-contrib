@@ -1,5 +1,26 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-opentelemetry-contrib (0.42.0-2) unstable; urgency=medium
 
-  * Initial release
+  * Fix DH_GOLANG_EXCLUDES and drop unused Depends
+  * Enable tests
+  * Update section to golang
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Shengjing Zhu <zhsj@debian.org>  Fri, 02 Aug 2024 14:01:08 +0800
+
+golang-opentelemetry-contrib (0.42.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Upload to unstable, Closes: #1059573
+  * drop golang-github-labstack-echo.v3-dev, no longer in unstable,
+    Closes: #1072143
+  * don't build any propagators for now
+  * build instrumentation/net, required by newer docker.io
+  * exclude otelgrpc example that requires newer grpc
+
+ -- Reinhard Tartler <siretart@tauware.de>  Fri, 31 May 2024 06:26:35 -0400
+
+golang-opentelemetry-contrib (0.25.0-1) experimental; urgency=medium
+
+  * Initial packaging (Closes: #1022834).
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 05 Oct 2022 11:53:20 +0200
