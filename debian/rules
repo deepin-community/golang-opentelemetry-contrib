@@ -1,4 +1,34 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_INSTALL_EXTRA := \
+	$(shell find . -name go.mod -not -path './.pc/*') \
+	zpages/internal/templates \
+	# EOL
+
+# Exclude packages to avoid additional dependencies.
+# Only add more packages when they are needed by reverse-depends.
+export DH_GOLANG_EXCLUDES := \
+	detectors \
+	instrgen \
+	example \
+	examples \
+	propagators/autoprop \
+	propagators/aws \
+	propagators/jaeger \
+	propagators/opencensus \
+	propagators/ot \
+	samplers \
+	tools \
+	instrumentation/github.com \
+	instrumentation/go.mongodb.org \
+	instrumentation/google.golang.org/grpc/otelgrpc/test \
+	instrumentation/gopkg.in \
+	instrumentation/host \
+	# EOL
+
 %:
-	dh $@
+	dh $@ --buildsystem=golang --builddirectory=_build
+
+execute_after_dh_auto_configure:
+	# google.golang.org/grpc/interop is currently broken, missing files.
+	rm -v -f _build/src/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc/benchmark_test.go

@@ -1,0 +1,17 @@
+From: Thomas Goirand <zigo@debian.org>
+Date: Sun, 20 Oct 2024 20:24:20 -0400
+Subject: Fix import description
+
+diff --git a/propagators/opencensus/examples/opentelemetry_server/server.go b/propagators/opencensus/examples/opentelemetry_server/server.go
+index 1b2b9c8..cde5334 100644
+--- a/propagators/opencensus/examples/opentelemetry_server/server.go
++++ b/propagators/opencensus/examples/opentelemetry_server/server.go
+@@ -1,7 +1,7 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
+-package main // import "go.opentelemetry.io/otel/bridge/opencensus/examples/grpc/server"
++package main
+ 
+ import (
+ 	"context"

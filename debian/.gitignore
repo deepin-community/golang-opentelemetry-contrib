@@ -1,0 +1,6 @@
+*.substvars
+*·log
+/.debhelper/
+/debhelper-build-stamp
+/files
+/golang-opentelemetry-contrib-dev/
